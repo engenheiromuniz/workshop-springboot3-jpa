@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.muniz.Spring.course.entities.User;
 import com.muniz.Spring.course.resource.UserResource;
 
+import jakarta.persistence.OneToMany;
 import repository.UserRepository;
 
 @Service
@@ -21,6 +22,7 @@ public class UserServices {
 	private UserRepository repository;
 	
 
+	@OneToMany(mappedBy = "client")
 	public List<User> findAll(){
 		return repository.findAll();
 	}

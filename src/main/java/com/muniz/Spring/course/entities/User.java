@@ -1,6 +1,8 @@
 package com.muniz.Spring.course.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.aot.generate.GenerationContext;
@@ -25,6 +27,8 @@ public class User implements Serializable{
 	private String  phone;
 	private String  password;
 	
+	private List<Order> orders = new ArrayList<>();
+	
 	public User() {}
 
 	public User(Integer id, String name, String email, String phone, String password) {
@@ -34,6 +38,15 @@ public class User implements Serializable{
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
+	}
+	
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
 	}
 
 	public Integer getId() {
