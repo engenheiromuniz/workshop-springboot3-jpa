@@ -10,12 +10,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.muniz.Spring.course.entities.Order;
+import com.muniz.Spring.course.entities.Product;
 import com.muniz.Spring.course.entities.User;
 import com.muniz.Spring.course.entities.Category;
 import com.muniz.Spring.course.entities.enuns.OrderStatus;
 
 import repository.CategoryRepository;
 import repository.OrderRepository;
+import repository.ProductRepository;
 import repository.UserRepository;
 
 @Configuration
@@ -31,6 +33,9 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -46,9 +51,16 @@ public class TestConfig implements CommandLineRunner{
 		  Category cat2 = new Category(null, "Books");
 		  Category cat3 = new Category(null, "Computers");
 		  
+		  Product p1 = new Product(null, "The Lord of Rings", "It's a great movie talking about the Frodo's life and his adventure.", 90.5, "");
+		  Product p2 = new Product(null, "Smart TV", "Super and technology TV flat 68'.", 2190.0, "");
+		  Product p3 = new Product(null, "MacBook Pro", "Notebook high end new genaration.", 1250.45, "");
+		  Product p4 = new Product(null, "PC Gamer", "Processor I7, 64GB RAM, SSD 1TB.", 1200.50, "");
+		  Product p5 = new Product(null, "Rails for Dumnmies", "This book brings to revolution for knowleges Ruby on Rails", 100.99, "");
+		  
 		  userRepository.saveAll(Arrays.asList(u1,u2));		
 		  orderRepository.saveAll(Arrays.asList(o1,o2,o3));
 		  categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
+		  productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 	}
 	
 	
