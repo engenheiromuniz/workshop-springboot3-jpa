@@ -36,7 +36,8 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private ProductRepository productRepository;
-
+	
+	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -56,6 +57,13 @@ public class TestConfig implements CommandLineRunner{
 		  Product p3 = new Product(null, "MacBook Pro", "Notebook high end new genaration.", 1250.45, "");
 		  Product p4 = new Product(null, "PC Gamer", "Processor I7, 64GB RAM, SSD 1TB.", 1200.50, "");
 		  Product p5 = new Product(null, "Rails for Dumnmies", "This book brings to revolution for knowleges Ruby on Rails", 100.99, "");
+		  
+		  p1.getCategories().add(cat2);
+		  p2.getCategories().add(cat1);
+		  p2.getCategories().add(cat3);
+		  p3.getCategories().add(cat3);
+		  p4.getCategories().add(cat3);
+		  p5.getCategories().add(cat2);
 		  
 		  userRepository.saveAll(Arrays.asList(u1,u2));		
 		  orderRepository.saveAll(Arrays.asList(o1,o2,o3));
